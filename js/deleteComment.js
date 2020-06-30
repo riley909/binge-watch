@@ -1,27 +1,28 @@
-function deleteComment() {
-    console.log("!!");
-    // let commentContent = $("#commentContent");
-    // let reviewNum = $("#reviewNum");
+function deleteComment(idx) {
+    // Uncaught RangeError: Maximum call stack size exceeded 수정
+    // XXX: input태그의 값이 아니라 태그 자체를 넘기는 실수를 하면 위의 오류가 발생
+    idx = $("#commentIdx").val();
+    let reviewNum = $("#reviewNum").val();
     $.confirm({
         icon: 'fas fa-exclamation-triangle',
         title: '',
         content: '댓글을 삭제할까요?',
         buttons: {
-            삭제: function () {
-                // TODO: Uncaught RangeError: Maximum call stack size exceeded 수정
-                // $.ajax({
-                //     type: 'POST',
-                //     url: "deleteComment.php",
-                //     data: {'review_num': reviewNum, 'comment_content': commentContent},
-                //     dataType: 'json',
-                //     success: function(result) {
-                //         console.log("삭제"+result);
-                //     }
-                // });	
+            delete: function () {
+                console.log("클릭");
+                $.ajax({
+                    type: 'POST',
+                    url: "deleteComment.php",
+                    data: {'review_num': reviewNum, 'comment_idx': idx},
+                    dataType: 'json',
+                    success: function(result) {
+                        console.log(result);
+                    }
+                });
                 $.alert('삭제되었습니다.');
                 // updateCommentList(reviewNum);
             },
-            취소: function () {
+            cancel: function () {
                 $.alert('취소되었습니다.');
             }
         }
