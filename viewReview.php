@@ -21,7 +21,7 @@ if (!isset($_SESSION['session_id'])) {
 $sessionId = $_SESSION['session_id'];
 $reviewNum = $_GET['review_num'];
 
-$sql = queryResult("SELECT *FROM review_note WHERE id = '$sessionId' AND review_num = '$reviewNum'");
+$sql = queryResult("SELECT *FROM review_note WHERE review_num = '$reviewNum'");
 $row = $sql->fetch_array();
 if ($sql->num_rows > 0) {
     $title = $row['title'];

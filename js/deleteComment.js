@@ -15,12 +15,15 @@ function deleteComment(idx) {
                     url: "deleteComment.php",
                     data: {'review_num': reviewNum, 'comment_idx': idx},
                     dataType: 'json',
-                    success: function(result) {
+                    success: function (result) {
                         console.log(result);
+                        let id = result.id;
+                        let reviewNum = result.review_num;
+                        updateCommentList(id, reviewNum);
                     }
                 });
                 $.alert('삭제되었습니다.');
-                // updateCommentList(reviewNum);
+
             },
             cancel: function () {
                 $.alert('취소되었습니다.');
