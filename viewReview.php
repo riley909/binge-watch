@@ -86,46 +86,53 @@ if ($sql->num_rows > 0) {
                             <h3><small class="pull-right"><span id="totalCommentNum"><?= $totalCommentNum ?></span>
                                     comments</small></h3>
                         </div>
-                        <!--                    댓글이 append되는 div태그-->
+                        <!--댓글이 append되는 div태그-->
                         <div class="comments-list">
 
-                            <?php
-                            while ($rowComment = $sqlComment->fetch_array()) {
-                                $commentIdx = $rowComment['idx'];
-                                $id = $rowComment['id'];
-                                $reviewNum = $rowComment['review_num'];
-                                $commentContent = $rowComment['comment_content'];
-                                $commentDate = $rowComment['comment_date'];
-                                $commentTime = $rowComment['comment_time'];
-                                ?>
-                                <div class="media">
-                                    <a class="media-left" href="#">
-<!--                                        <img src="http://lorempixel.com/40/40/people/1/">-->
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading user_name"><?= $id ?></h4>
-                                        <div id="commentContent"><?= $commentContent ?></div>
-                                        <input type="hidden" id="reviewNum" value="<?=$reviewNum?>"/>
-                                        <input type="hidden" id="commentIdx" value="<?=$commentIdx?>"/>
+<!--                            --><?php
+//                            while ($rowComment = $sqlComment->fetch_array()) {
+//                                $commentIdx = $rowComment['idx'];
+//                                $id = $rowComment['id'];
+//                                $reviewNum = $rowComment['review_num'];
+//                                $commentContent = $rowComment['comment_content'];
+//                                $commentDate = $rowComment['comment_date'];
+//                                $commentTime = $rowComment['comment_time'];
+//                            }?>
+                            <script>
+                                let id = $('#commentId').val();
+                                let reviewNum = $('#reviewNum').val();
+                                $(document).ready(function(){
+                                    updateCommentList(id, reviewNum);
+                                });
+                            </script>
+<!--                                <div class="media">-->
+<!--                                    <a class="media-left" href="#">-->
+                                        <!--프로필 사진-->
+<!--                                    </a>-->
+<!--                                    <div class="media-body">-->
+<!--                                        <h4 class="media-heading user_name">--><?//= $id ?><!--</h4>-->
+<!--                                        <div id="commentContent">--><?//= $commentContent ?><!--</div>-->
+<!--                                        <input type="hidden" id="reviewNum" value="--><?//= $reviewNum ?><!--"/>-->
+<!--                                        <input type="hidden" id="commentIdx" value="--><?//= $commentIdx ?><!--"/>-->
 
                                         <!-- 내가 쓴 댓글일 경우만 수정, 삭제버튼 노출 -->
-                                        <?php if ($sessionId === $id) { ?>
-                                            <p><small>
-                                                    <button type="button" style="border: 0; outline:0; color:blue;">수정
-                                                    </button>
-                                                    <button type="button" style="border: 0; outline:0; color:blue;"
-                                                            onclick="deleteComment(<?=$commentIdx?>)">삭제
-                                                    </button>
-                                                </small></p>
-                                        <?php } ?>
-                                    </div>
-                                    <p class="pull-right">
-                                        <small><?= $commentDate ?></small><br>
-                                        <small><?= $commentTime ?></small>
-                                    </p>
-                                </div>
-                            <?php } ?>
-                        </div>
+<!--                                        --><?php //if ($sessionId === $id) { ?>
+<!--                                            <p><small>-->
+<!--                                                    <button type="button" style="border: 0; outline:0; color:blue;">수정-->
+<!--                                                    </button>-->
+<!--                                                    <button type="button" style="border: 0; outline:0; color:blue;"-->
+<!--                                                            onclick="deleteComment(--><?//= $commentIdx ?><!--//)">삭제-->
+<!--//                                                    </button>-->
+<!--//                                                </small></p>-->
+<!--                                        --><?php //} ?>
+<!--                                    </div>-->
+<!--                                    <p class="pull-right">-->
+<!--                                        <small>--><?//= $commentDate ?><!--</small><br>-->
+<!--                                        <small>--><?//= $commentTime ?><!--</small>-->
+<!--                                    </p>-->
+<!--                                </div>-->
+<!--                            --><?php //} ?>
+<!--                        </div>-->
                     </div>
                 </div>
             </div>

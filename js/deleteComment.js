@@ -15,7 +15,7 @@ function deleteComment(idx) {
                     data: {'review_num': reviewNum, 'comment_idx': idx},
                     dataType: 'json',
                     success: function (result) {
-                        console.log(result);
+                        console.log('delete: ', result);
                         let id = result.id;
                         let reviewNum = result.review_num;
                         updateCommentList(id, reviewNum);
