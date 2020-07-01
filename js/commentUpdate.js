@@ -31,7 +31,7 @@ function updateCommentList(myId, reviewNum) {
                         + "<div id=\"commentContent\">" + commentContent + "</div>"
                         + "<input type=\"hidden\" id=\"reviewNum\" value=" + reviewNum + "/>"
                         + "<input type=\"hidden\" id=\"commentIdx\" value=" + idx + "/>"
-                        + "<p><small><button type=\"button\" style=\"border: 0; outline:0; color:blue;\">수정</button>"
+                        + "<p><small><button type=\"button\" style=\"border: 0; outline:0; color:blue;\" onclick=editComment(\"" + idx + "\")>수정</button>"
                         + "<button type=\"button\" style=\"border: 0; outline:0; color:blue;\" onclick=deleteComment(\"" + idx + "\")>삭제"
                         + "</button></small></p></div>"
                         + "<p class=\"pull-right\">"

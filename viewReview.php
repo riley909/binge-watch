@@ -54,7 +54,7 @@ if ($sql->num_rows > 0) {
                 <!-- url로(GET) review_num 변수를 넘겨주고 edit~페이지에서 받는다 -->
                 <a href="editReview.php?review_num=<?= $reviewNum ?>" class="btn btn-sm btn-info">수정</a>
                 <!-- js컨펌창에 php변수를 넘기는 과정에서 매개변수로 데이터를 넣어주었더니 잘 적용된다 -->
-                <!-- 매개변수 없이 그냥 js변수로 변환시켜봤더니 for문이 돌아가는것을 따라가지 않고 3에 값이 고정된다(??) -->
+                <!-- 반복문 안에 생성되는 함수에 매개변수를 받지 않으면 값을 구별하지 못하고 가장 상단의 값만 가져온다 -->
                 <button type="button" class="btn btn-sm btn-info" onclick="confirmDelete('<?= $reviewNum ?>');">삭제
                 </button>
             </div>
@@ -88,74 +88,38 @@ if ($sql->num_rows > 0) {
                         </div>
                         <!--댓글이 append되는 div태그-->
                         <div class="comments-list">
-
-<!--                            --><?php
-//                            while ($rowComment = $sqlComment->fetch_array()) {
-//                                $commentIdx = $rowComment['idx'];
-//                                $id = $rowComment['id'];
-//                                $reviewNum = $rowComment['review_num'];
-//                                $commentContent = $rowComment['comment_content'];
-//                                $commentDate = $rowComment['comment_date'];
-//                                $commentTime = $rowComment['comment_time'];
-//                            }?>
+<!--                            댓글을 보여주기 위해서 댓글 목록 출력(업데이트)함수를 호출-->
                             <script>
                                 let id = $('#commentId').val();
                                 let reviewNum = $('#reviewNum').val();
-                                $(document).ready(function(){
+                                $(document).ready(function () {
                                     updateCommentList(id, reviewNum);
                                 });
                             </script>
-<!--                                <div class="media">-->
-<!--                                    <a class="media-left" href="#">-->
-                                        <!--프로필 사진-->
-<!--                                    </a>-->
-<!--                                    <div class="media-body">-->
-<!--                                        <h4 class="media-heading user_name">--><?//= $id ?><!--</h4>-->
-<!--                                        <div id="commentContent">--><?//= $commentContent ?><!--</div>-->
-<!--                                        <input type="hidden" id="reviewNum" value="--><?//= $reviewNum ?><!--"/>-->
-<!--                                        <input type="hidden" id="commentIdx" value="--><?//= $commentIdx ?><!--"/>-->
 
-                                        <!-- 내가 쓴 댓글일 경우만 수정, 삭제버튼 노출 -->
-<!--                                        --><?php //if ($sessionId === $id) { ?>
-<!--                                            <p><small>-->
-<!--                                                    <button type="button" style="border: 0; outline:0; color:blue;">수정-->
-<!--                                                    </button>-->
-<!--                                                    <button type="button" style="border: 0; outline:0; color:blue;"-->
-<!--                                                            onclick="deleteComment(--><?//= $commentIdx ?><!--//)">삭제-->
-<!--//                                                    </button>-->
-<!--//                                                </small></p>-->
-<!--                                        --><?php //} ?>
-<!--                                    </div>-->
-<!--                                    <p class="pull-right">-->
-<!--                                        <small>--><?//= $commentDate ?><!--</small><br>-->
-<!--                                        <small>--><?//= $commentTime ?><!--</small>-->
-<!--                                    </p>-->
-<!--                                </div>-->
-<!--                            --><?php //} ?>
-<!--                        </div>-->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- 삭제버튼 확인부분 -->
-    <script>
-        function confirmDelete(reviewNum) {
-            $.confirm({
-                icon: 'fas fa-exclamation-triangle',
-                title: '삭제 확인',
-                content: '리뷰를 삭제할까요?',
-                buttons: {
-                    delete: function () {
-                        location.href = "deleteReview.php?review_num=" + reviewNum;
-                    },
-                    cancel: function () {
+        <!-- 삭제버튼 확인부분 -->
+        <script>
+            function confirmDelete(reviewNum) {
+                $.confirm({
+                    icon: 'fas fa-exclamation-triangle',
+                    title: '삭제 확인',
+                    content: '리뷰를 삭제할까요?',
+                    buttons: {
+                        delete: function () {
+                            location.href = "deleteReview.php?review_num=" + reviewNum;
+                        },
+                        cancel: function () {
+                        }
                     }
-                }
-            });
-        }
-    </script>
+                });
+            }
+        </script>
 
     </div>
     <script src="js/commentUpdate.js"></script>
