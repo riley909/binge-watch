@@ -1,7 +1,6 @@
 function deleteComment(idx) {
     // Uncaught RangeError: Maximum call stack size exceeded 수정
     // XXX: input태그의 값이 아니라 태그 자체를 넘기는 실수를 하면 위의 오류가 발생
-    idx = $("#commentIdx").val();
     let reviewNum = $("#reviewNum").val();
     $.confirm({
         icon: 'fas fa-exclamation-triangle',
