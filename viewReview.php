@@ -88,7 +88,7 @@ if ($sql->num_rows > 0) {
                         </div>
                         <!--댓글이 append되는 div태그-->
                         <div class="comments-list">
-<!--                            댓글을 보여주기 위해서 댓글 목록 출력(업데이트)함수를 호출-->
+                            <!--                            댓글을 보여주기 위해서 댓글 목록 출력(업데이트)함수를 호출-->
                             <script>
                                 let id = $('#commentId').val();
                                 let reviewNum = $('#reviewNum').val();
@@ -125,4 +125,5 @@ if ($sql->num_rows > 0) {
     <script src="js/commentUpdate.js"></script>
     <script src="js/applyComment.js"></script>
     <script src="js/deleteComment.js"></script>
+    <script src="js/editComment.js"></script>
 <?php include 'menu/bottom.html'; ?>

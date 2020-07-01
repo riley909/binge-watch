@@ -8,7 +8,6 @@ function deleteComment(idx) {
         content: '댓글을 삭제할까요?',
         buttons: {
             delete: function () {
-                console.log("클릭");
                 $.ajax({
                     type: 'POST',
                     url: "deleteComment.php",
