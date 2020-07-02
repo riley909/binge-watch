@@ -14,6 +14,7 @@ $('#writeCommentBtn').click(function () {
     let reviewNum = formData[2].value;
     console.log(id);
     console.log(reviewNum);
+    // TODO: 댓글 작성시 새로고침이 제대로 반영되지 않음
     updateCommentList(id, reviewNum);
 });
 
