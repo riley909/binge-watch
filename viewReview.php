@@ -67,7 +67,7 @@ if ($sql->num_rows > 0) {
                         <input type="hidden" name="commentId" id="commentId" value="<?= $sessionId ?>">
                         <input type="hidden" name="reviewNum" id="reviewNum" value="<?= $reviewNum ?>">
                         <input type="hidden" name="commentDate" id="commentDate" value="<?= date('Y-m-d') ?>">
-                        <input type="hidden" name="commentTime" id="commentTime" value="1">
+                        <input type="hidden" name="commentTime" id="commentTime" value="<?= date('H:i:s') ?>">
                         <button type="submit" class="btn btn-sm btn-info pull-right mt-2" id="writeCommentBtn">작성하기
                         </button>
                     </div>
