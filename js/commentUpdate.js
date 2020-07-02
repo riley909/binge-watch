@@ -9,7 +9,9 @@ function updateCommentList(myId, reviewNum) {
             console.log(result);
             // 댓글 목록이 중복 출력되는 것을 피하기 위해 목록 출력 전에 창을 초기화한다
             $(".comments-list").empty();
-            let totalCommentNum = result[0].total;
+            // 댓글이 하나도 없을때에는 총 댓글수로 0을 보여준다
+            let totalCommentNum;
+            (result.length < 0) ? totalCommentNum = 0 : totalCommentNum = result[0].total;
             console.log('total: ', totalCommentNum);
             // 총 댓글의 개수는 댓글의 삭제, 수정, 작성과 상관없이 항상 반영한다
             // 텍스르에 접근하려면 .val() 이 아니라 .html()을 사용할 것
