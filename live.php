@@ -18,7 +18,6 @@ if (!isset($_SESSION['session_id'])) {
     <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
     <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="static/chat.js"></script>
     <script src="https://unpkg.com/video.js/dist/video.js"></script>
     <script src="https://unpkg.com/videojs-flash/dist/videojs-flash.js"></script>
 
@@ -48,11 +47,8 @@ if (!isset($_SESSION['session_id'])) {
             </div>
         </div>
     </div>
-    <script>
-
-    </script>
-
     </body>
 
     </html>
+    <script src="static/chat.js"></script>
 <?php } ?>
