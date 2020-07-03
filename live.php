@@ -43,7 +43,7 @@ if (!isset($_SESSION['session_id'])) {
             <!-- 접속자 명단 -->
             <div class="col col-lg-2">
                 <label for="userlist">접속자 목록</label>
-                <div id="userlist" class="bg-white" style="height: 400px; border:1px solid black;"></div>
+                <div id="userlist" class="bg-white" style="height: 400px; border:1px solid black; overflow: auto"></div>
             </div>
         </div>
     </div>
